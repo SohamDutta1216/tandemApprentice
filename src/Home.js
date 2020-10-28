@@ -6,13 +6,11 @@ export default class Home extends React.Component {
     started: false,
     completed: false
   }
-
-
   render() {
     return (
       <div>
         {this.state.started ? (<div className="container center">>
-          <Content />
+          <Content completed={this.state.completed} />
           <button onClick={() => this.setState({ started: false })}>Reset</button>
         </div>) :
           (<div className="container center">
