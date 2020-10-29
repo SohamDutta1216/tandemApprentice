@@ -6,21 +6,30 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      started: false,
-      completed: false,
+      first10: shuffleData(Questions),
       score: 0,
       questionNumber: 1,
       selected: '',
-      checked: false
     }
-    this.selectionMethod.bind(this)
+    this.selectionMethod = this.selectionMethod.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
   selectionMethod(e) {
+    console.log('before', this.state)
     this.state.selected = e.target.value
-    console.log(this.state)
+    console.log('after', this.state)
+  }
+  handleSubmit(selected, correct) {
+    if (selected === correct) {
+      this.setState({ score: this.state.score + 1, selected: '', questionNumber: this.state.questionNumber + 1 })
+    } else {
+      alert(`Sorry! the correct answer is ${correct}`)
+      this.setState({ selected: '', questionNumber: this.state.questionNumber + 1 })
+    }
+    console.log('submit', this.state)
   }
   render() {
-    let randomQuestions = shuffleData(Questions)
+    let randomQuestions = this.state.first10
     let groupedAnswers = groupAnswers(randomQuestions[this.state.questionNumber].correct, randomQuestions[this.state.questionNumber].incorrect)
 
 
@@ -41,11 +50,11 @@ export default class Home extends React.Component {
                       <div key={answer}>
                         <li>
                           <input
+                            className='checkControl'
                             type="checkbox"
                             id={answer}
                             value={answer}
                             onChange={(event) => this.selectionMethod(event)}
-
                           />
                           <label htmlFor={answer}>{answer}</label>
                         </li>
@@ -57,7 +66,7 @@ export default class Home extends React.Component {
 
               <button className='btn' onClick={() => this.setState({ started: false, completed: false, score: 0, questionNumber: 1 })}>Reset</button>
 
-              <button className='btn' >Submit</button>
+              <button className='btn' onClick={() => this.handleSubmit(this.state.selected, randomQuestions[this.state.questionNumber].correct)} >Submit</button>
 
             </div>
 
@@ -66,6 +75,9 @@ export default class Home extends React.Component {
           (
             <div className="container center">
               <h1>Your Score is {this.state.score}!</h1>
+              <button className="btn"
+                onClick={() => this.setState({ score: 0, questionNumber: 1, selected: '', first10: shuffleData(Questions) })}
+              > Try Again</button>
             </div>
           )}
       </div>
