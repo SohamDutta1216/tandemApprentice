@@ -15,7 +15,7 @@ const groupAnswers = (correct, incorrect) => {
     grouped.push(incorrect[i])
   }
   grouped.push(correct)
-  return shuffleData(grouped)
+  return grouped
 }
 
 module.exports = {

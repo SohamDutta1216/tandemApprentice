@@ -2,6 +2,7 @@ import React from 'react'
 import Questions from './data/questions.json'
 import { groupAnswers, shuffleData } from './HelperFunctions.js'
 
+
 export default class Home extends React.Component {
   constructor(props) {
     super(props)
@@ -14,11 +15,12 @@ export default class Home extends React.Component {
     this.selectionMethod = this.selectionMethod.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
+
   selectionMethod(e) {
     if (this.state.selected === e.target.value) {
-      this.state.selected = ''
+      this.setState({ selected: '' })
     } else {
-      this.state.selected = e.target.value
+      this.setState({ selected: e.target.value })
     }
     console.log(this.state)
   }
@@ -34,10 +36,8 @@ export default class Home extends React.Component {
   }
 
   render() {
-
     let randomQuestions = this.state.first10
     let groupedAnswers = groupAnswers(randomQuestions[this.state.questionNumber].correct, randomQuestions[this.state.questionNumber].incorrect)
-
     return (
       <div>
         {
@@ -58,7 +58,9 @@ export default class Home extends React.Component {
                               type="checkbox"
                               id={answer}
                               value={answer}
-                              onChange={(event) => this.selectionMethod(event)}
+                              checked={this.state.selected === answer}
+                              onClick={(e) => this.selectionMethod(e)}
+                              onChange={(e) => this.selectionMethod(e)}
                             />
                             <label htmlFor={answer}>{answer}</label>
                           </li>
