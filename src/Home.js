@@ -8,6 +8,7 @@ export default class Home extends React.Component {
     completed: false,
     score: 0,
     questionNumber: 1,
+    selected: ''
   }
   render() {
     let randomQuestions = shuffleData(Questions)
@@ -15,7 +16,7 @@ export default class Home extends React.Component {
 
     return (
       <div>
-        {this.state.started ?
+        {(this.state.questionNumber < 11) ?
 
           (
             <div className="container center">
@@ -28,8 +29,11 @@ export default class Home extends React.Component {
                   <ul>
                     {groupedAnswers.map(answer => (
                       <div>
-                        <li>
-                          <input type="checkbox" id={answer} />
+                        <li key={answer}>
+                          <input
+                            type="checkbox"
+                            id={answer}
+                          />
                           <label htmlFor={answer}>{answer}</label>
                         </li>
                       </div>
@@ -48,9 +52,7 @@ export default class Home extends React.Component {
           :
           (
             <div className="container center">
-
-              <button onClick={() => this.setState({ started: true })} className="btn center" >Start</button>
-
+              <h1>Your Score is {this.state.score}!</h1>
             </div>
           )}
       </div>
