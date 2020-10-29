@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Questions from './data/questions.json'
 import { groupAnswers, shuffleData } from './HelperFunctions.js'
 
@@ -8,8 +8,10 @@ export default class Home extends React.Component {
     completed: false,
     score: 0,
     questionNumber: 1,
-    selected: ''
+    selected: '',
+    checked: false
   }
+
   render() {
     let randomQuestions = shuffleData(Questions)
     let groupedAnswers = groupAnswers(randomQuestions[this.state.questionNumber].correct, randomQuestions[this.state.questionNumber].incorrect)
