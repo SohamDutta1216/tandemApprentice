@@ -1,12 +1,19 @@
 const { shuffleData, groupAnswers } = require('../HelperFunctions.js')
 
-describe('our shuffleData function', () => {
+
+describe('our shuffleData function shuffles all the array passed in', () => {
 
   const data = ['hello', 'tandem', 'please', 'hire', 'me', ':)']
   const testShuffle = shuffleData(data)
 
   it('returns an array with the same values it initially contained', () => {
     expect(testShuffle).toEqual(expect.arrayContaining(data))
+  })
+
+  it('should only contain values that are strings', () => {
+    for (let i = 0; i < testShuffle.length; i++) {
+      expect(typeof (testShuffle[i])).toEqual('string')
+    }
   })
 
   it('does not change any values within the array', () => {
@@ -17,9 +24,20 @@ describe('our shuffleData function', () => {
     expect(testShuffle).not.toStrictEqual(['hello', 'tandem', 'please', 'hire', 'me', ':)'])
   })
 
-  it('should only contain values that are strings', () => {
-    for (let i = 0; i < testShuffle.length; i++) {
-      expect(typeof (testShuffle[i])).toEqual('string')
-    }
+})
+
+describe('our groupAnswers function merges two arrays into one', () => {
+
+  const arr1 = [':)']
+  const arr2 = ['I', 'am', 'a', 'hard', 'worker']
+  const desiredOutput = [':)', 'I', 'am', 'a', 'hard', 'worker']
+  const mergedArray = groupAnswers(arr1, arr2)
+
+  it('returns a single array', () => {
+    expect(typeof (mergedArray)).toEqual('object')
+  })
+
+  it('contains all the values from both arrays passed in', () => {
+    expect(mergedArray).toEqual(desiredOutput)
   })
 })

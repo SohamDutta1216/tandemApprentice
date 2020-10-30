@@ -46,7 +46,6 @@ export default class Home extends React.Component {
   }
 
   render() {
-
     let randomQuestions = this.state.first10
     let groupedAnswers = groupAnswers(randomQuestions[this.state.questionNumber].correct, randomQuestions[this.state.questionNumber].incorrect)
     let answers = this.handleShuffle(groupedAnswers)

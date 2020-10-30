@@ -1,20 +1,22 @@
 
-const shuffleData = (array) => {
-  for (let i = array.length - 1; i > 0; i--) {
+const shuffleData = (arr) => {
+  for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * i)
-    const temp = array[i]
-    array[i] = array[j]
-    array[j] = temp
+    const temp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = temp
   }
-  return array
+  return arr
 }
 
-const groupAnswers = (correct, incorrect) => {
+const groupAnswers = (arr1, arr2) => {
   let grouped = []
-  for (let i = 0; i < incorrect.length; i++) {
-    grouped.push(incorrect[i])
+  for (let i = 0; i < arr1.length; i++) {
+    grouped.push(arr1[i])
   }
-  grouped.push(correct)
+  for (let i = 0; i < arr2.length; i++) {
+    grouped.push(arr2[i])
+  }
   return grouped
 }
 
