@@ -25,7 +25,6 @@ export default class Trivia extends React.Component {
     } else {
       this.setState({ selected: e.target.value })
     }
-    console.log(this.state)
   }
 
   handleSubmit(selected, correct) {
@@ -35,7 +34,6 @@ export default class Trivia extends React.Component {
       alert(`Sorry! the correct answer is ${correct}`)
       this.setState({ selected: '', questionNumber: this.state.questionNumber + 1, shuffle: true })
     }
-    console.log('submit', this.state)
   }
 
   handleShuffle(arr) {
@@ -94,7 +92,7 @@ export default class Trivia extends React.Component {
 
                 <button style={{ backgroundColor: '#6c6f45', color: '#fcd9d2', marginTop: '100px', marginRight: '90px' }} className='btn-large' onClick={() => window.location.reload(false)}>Reset</button>
 
-                <button style={{ backgroundColor: '#6c6f45', color: '#fcd9d2', marginTop: '100px', marginLeft: '90px' }} className='btn-large' onClick={() => this.handleSubmit(this.state.selected, randomQuestions[this.state.questionNumber].correct)}>
+                <button style={{ backgroundColor: '#6c6f45', color: '#fcd9d2', marginTop: '100px', marginLeft: '90px' }} className='btn-large' id='#submitButton' onClick={() => this.handleSubmit(this.state.selected, randomQuestions[this.state.questionNumber].correct)}>
                   Submit
                 </button>
 
