@@ -19,6 +19,6 @@ const groupAnswers = (correct, incorrect) => {
 }
 
 module.exports = {
-  shuffleData: shuffleData,
-  groupAnswers: groupAnswers
+  shuffleData,
+  groupAnswers
 }
