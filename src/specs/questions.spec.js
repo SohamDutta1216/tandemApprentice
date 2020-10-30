@@ -1,4 +1,4 @@
-const questions = require('../data/questions.json')
+const questions = require('../data/Questions')
 
 test('our questions data has a length greater than 0', () => {
   let currentLength = questions.length

@@ -1,8 +1,8 @@
 import React from 'react'
-import Questions from './data/questions.json'
-import { groupAnswers, shuffleData } from './HelperFunctions.js'
+import Questions from './data/Questions'
+import { groupAnswers, shuffleData } from './HelperFunctions'
 
-export default class Home extends React.Component {
+export default class Trivia extends React.Component {
   constructor(props) {
     super(props)
     this.state = {

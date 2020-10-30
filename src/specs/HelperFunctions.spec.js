@@ -1,4 +1,4 @@
-const { shuffleData, groupAnswers } = require('../HelperFunctions.js')
+const { shuffleData, groupAnswers } = require('../HelperFunctions')
 
 
 describe('our shuffleData function shuffles all the array passed in', () => {
