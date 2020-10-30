@@ -36,30 +36,48 @@ export default class Home extends React.Component {
     }
     console.log('submit', this.state)
   }
-  // handle shuffle needs to shuffle each round
+
   handleShuffle(arr) {
     if (this.state.shuffle === true) {
-      this.state.shuffle = false
-      this.state.shuffledAnswers = shuffleData(arr)
+
+      this.setState({ shuffle: false, shuffledAnswers: shuffleData(arr) })
+
     }
     return this.state.shuffledAnswers
   }
 
   render() {
+
     let randomQuestions = this.state.first10
     let groupedAnswers = groupAnswers(randomQuestions[this.state.questionNumber].correct, randomQuestions[this.state.questionNumber].incorrect)
     let answers = this.handleShuffle(groupedAnswers)
+
     return (
+
       <div>
+
         {
           (this.state.questionNumber < 11) ?
             (
               <div className=" container center">
-                <div className="card">
-                  <h4>{this.state.score}/10</h4>
-                  <h5>
-                    <p>Question {this.state.questionNumber}</p> {randomQuestions[this.state.questionNumber].question}
+                <div style={{ backgroundColor: '#fcd9d2', marginTop: '100px' }} className="card">
+
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+                  <h4 style={{ color: '#6c6f45' }}>{this.state.score}/10</h4>
+
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+                  <h5 style={{ color: '#6c6f45' }}>
+                    <p style={{ color: '#6c6f45' }}>Question {this.state.questionNumber}</p>
+                    {randomQuestions[this.state.questionNumber].question}
                   </h5>
+
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
                   <div>
                     <ul>
                       {answers.map(answer => (
@@ -73,19 +91,30 @@ export default class Home extends React.Component {
                               onClick={(e) => this.selectionMethod(e)}
                               onChange={(e) => this.selectionMethod(e)}
                             />
-                            <label htmlFor={answer}>{answer}</label>
+                            <label style={{ color: '#6c6f45', fontSize: '20px' }} htmlFor={answer}>{answer}</label>
                           </li>
+
+                          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
                         </div>
                       )
                       )
                       }
+                          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
                     </ul>
                   </div>
                 </div>
 
-                <button className='btn-large' onClick={() => this.setState({ started: false, completed: false, score: 0, questionNumber: 1, first10: shuffleData(Questions) })}>Reset</button>
 
-                <button className='btn-large' onClick={() => this.handleSubmit(this.state.selected, randomQuestions[this.state.questionNumber].correct)}>
+                <button style={{ backgroundColor: '#6c6f45', color: '#fcd9d2' }} className='btn-large' onClick={() => this.setState({ started: false, completed: false, score: 0, questionNumber: 1, first10: shuffleData(Questions) })}>Reset</button>
+
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+                <button style={{ backgroundColor: '#6c6f45', color: '#fcd9d2' }} className='btn-large' onClick={() => this.handleSubmit(this.state.selected, randomQuestions[this.state.questionNumber].correct)}>
                   Submit
                 </button>
 
@@ -93,11 +122,14 @@ export default class Home extends React.Component {
             )
             :
             (
-              <div className="container center">
+              <div style={{ backgroundColor: '#fbf3e3' }} className="center">
 
-                <h1>Your Score is {this.state.score}!</h1>
+                <h1 style={{ color: '#6c6f45' }}
+                >Your Score is {this.state.score}!</h1>
 
-                <button className="btn"
+                <button
+                  style={{ backgroundColor: '#6c6f45', color: '#fcd9d2' }}
+                  className="btn"
                   onClick={() => this.setState({ score: 0, questionNumber: 1, selected: '', first10: shuffleData(Questions) })}
                 > Try Again
               </button>

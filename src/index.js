@@ -5,7 +5,7 @@ import Home from './Home.js'
 
 const App = () => {
   return (
-    <div>
+    <div style={{ fontFamily: 'DejaVu Sans Mono, monospace', backgroundColor: '#fbf3e3' }}>
       <Header />
       <Home />
     </div>

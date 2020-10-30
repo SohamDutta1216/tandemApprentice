@@ -4,8 +4,8 @@ const Header = () => {
   return (
     <div>
       <nav>
-        <div className="nav-wrapper indigo lighten-5">
-          <h1 className="brand-logo center black-text">TRIVIA</h1>
+        <div style={{ backgroundColor: '#6c6f45' }} className="nav-wrapper">
+          <h1 className="brand-logo center " style={{ color: '#fcd9d2' }}>TRIVIA</h1>
         </div>
       </nav>
     </div>
