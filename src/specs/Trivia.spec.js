@@ -3,6 +3,7 @@ import Trivia from '../Trivia'
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16'
 configure({ adapter: new Adapter() })
+import { shuffleData } from '../HelperFunctions'
 
 describe('Trivia', () => {
   const wrapper = shallow(<Trivia />)
@@ -75,19 +76,66 @@ describe('Trivia', () => {
 
     describe('handleSubmit', () => {
 
-      const handleSubmit = wrapper.find('handleSubmit')
+      const submit = wrapper.find('[htmlFor="submit"]')
+      window.alert = jest.fn(() => ({}));
 
       it('is a class method', () => {
-        expect(handleSubmit).toBeDefined()
+        expect(submit).toBeDefined()
       })
 
-      it('increments score and questionNumber if the two variables passed in equal each other', () => {
-        wrapper.setState({ score: 0, questionNumber: 1 }, [handleSubmit('hi', 'hi')])
-        expect(wrapper.state().score).toEqual(1)
+      it('should increment questionNumber each call', () => {
+        let prev = wrapper.state()
+        submit.simulate('click')
+        expect(wrapper.state().questionNumber).not.toEqual(prev.questionNumber)
+      })
+      it('should flip shuffle to true each call', () => {
+        submit.simulate('click')
+        expect(wrapper.state().shuffle).toBeTruthy()
+      })
 
+      it('should display a window alert with the correct answer if the user chooses the wrong answer', () => {
+        jest.spyOn(window, 'alert').mockImplementation(() => { })
+        wrapper.find('[htmlFor="submit"]').simulate('click')
+        expect(window.alert).toBeCalled()
       })
     })
+    describe('handleShuffle', () => {
 
+      const handleShuffle = wrapper.find('handleShuffle')
+
+      it('is a class method', () => {
+        expect(handleShuffle).toBeDefined()
+      })
+
+      it('should return an array', () => {
+        expect(typeof handleShuffle).toEqual('object')
+      })
+      it('should set a shuffled version of the array passed in to shuffledAnswers on our state, shuffledAnswers should not be an empty array', () => {
+        wrapper.find('[htmlFor="submit"]').simulate('click')
+        expect(wrapper.state().shuffledAnswers.length).toBeGreaterThan(0)
+      })
+    })
+  })
+  describe('our rendered component', () => {
+
+    it('should have a header displaying the users score', () => {
+      let header = wrapper.find('h4')
+      expect(header).toBeDefined()
+    })
+
+    it('should have a p tag displaying the question number', () => {
+      let pTag = wrapper.find('p')
+      expect(pTag).toBeDefined()
+    })
+    it('should have a p tag displaying the question number', () => {
+      let pTag = wrapper.find('p')
+      expect(pTag).toBeDefined()
+    })
+    it('should have inputs for each possible answer that utilizes our selectionMethod method', () => {
+      let input = wrapper.find('input')
+      expect(input).toBeDefined()
+    })
 
   })
+
 })
