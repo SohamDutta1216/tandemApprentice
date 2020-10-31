@@ -90,7 +90,7 @@ export default class Trivia extends React.Component {
                   </div>
                 </div>
 
-                <button style={{ backgroundColor: '#6c6f45', color: '#fcd9d2', marginTop: '100px', marginRight: '90px' }} className='btn-large' onClick={() => window.location.reload(false)}>Reset</button>
+                <button htmlFor='reset' style={{ backgroundColor: '#6c6f45', color: '#fcd9d2', marginTop: '100px', marginRight: '90px' }} className='btn-large' onClick={() => window.location.reload(false)}>Reset</button>
 
                 <button htmlFor='submit' style={{ backgroundColor: '#6c6f45', color: '#fcd9d2', marginTop: '100px', marginLeft: '90px' }} className='btn-large' id='#submitButton' onClick={() => this.handleSubmit(this.state.selected, randomQuestions[this.state.questionNumber].correct)}>
                   Submit
@@ -106,6 +106,7 @@ export default class Trivia extends React.Component {
                 >Your Score is {this.state.score} out of 10!</h1>
 
                 <button
+                  htmlFor='tryAgain'
                   style={{ backgroundColor: '#6c6f45', color: '#fcd9d2', marginTop: '50px' }}
                   className="btn-large"
                   onClick={() => this.setState({ score: 0, questionNumber: 1, selected: '', first10: shuffleData(Questions) })}

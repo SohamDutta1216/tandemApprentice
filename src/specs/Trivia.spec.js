@@ -3,7 +3,7 @@ import Trivia from '../Trivia'
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16'
 configure({ adapter: new Adapter() })
-import { shuffleData } from '../HelperFunctions'
+
 
 describe('Trivia', () => {
   const wrapper = shallow(<Trivia />)
@@ -127,13 +127,21 @@ describe('Trivia', () => {
       let pTag = wrapper.find('p')
       expect(pTag).toBeDefined()
     })
-    it('should have a p tag displaying the question number', () => {
-      let pTag = wrapper.find('p')
-      expect(pTag).toBeDefined()
-    })
     it('should have inputs for each possible answer that utilizes our selectionMethod method', () => {
       let input = wrapper.find('input')
       expect(input).toBeDefined()
+    })
+    it('should have a reset button that restarts our game', () => {
+      let reset = wrapper.find('[htmlFor="reset"]')
+      expect(reset).toBeDefined()
+    })
+    it('should display your final score in a header', () => {
+      let finalScore = wrapper.find('h1')
+      expect(finalScore).toBeDefined()
+    })
+    it('should have a try again button that restarts the game', () => {
+      let tryAgain = wrapper.find('[htmlFor="tryAgain"]')
+      expect(tryAgain).toBeDefined()
     })
 
   })
