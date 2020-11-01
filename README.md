@@ -3,9 +3,9 @@
 
 Your goal is to create an application that displays trivia questions with multiple-choice answers to select from.
 
-![Alt text](/background.png "preview")
+![Alt text](https://i.postimg.cc/fT0cc67G/Screen-Shot-2020-11-01-at-9-39-14-AM.png "preview")
 
-### Assumptioms
+### Assumptions
 
 - A round of trivia has 10 Questions
 - All questions are multiple-choice questions
@@ -69,4 +69,15 @@ WellPaidGeek on YouTube https://www.youtube.com/watch?v=XUlGzJLZe2Q&ab_channel=W
 ### Future Features
 
 - implement a RDBMS such as PostgresSQL to hold all our JSON data
-- implement google OAuth and use our RDBMS to
+- create a sign-up and log-in component
+- implement google OAuth and use our database to keep track of user login information and allow easy sign-up/log-in
+- create a component to handle user submissions for their own questions and answers
+- use our database to hold user submissions for new questions and answers
+- create a database model and a well structured schema
+- add a 'Categories' key on our data so that users can submit groups of questions under a certain topic
+- create a landing page for our users rather than starting at the trivia game itself
+- have our landing page render lists of categories to choose from and a search bar to search for categories
+- implement pagination on our landing page
+- implement the new React hooks syntax rather than the legacy React syntax; At this point Redux would most likely need to be implemented as well
+- implement React-share and React-helmet so logged in users can share their score with friends on social media
+- improve the UI/UX, possibly creating a custom library rather than using Materialize CSS
