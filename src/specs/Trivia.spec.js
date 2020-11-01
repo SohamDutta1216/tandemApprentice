@@ -7,7 +7,6 @@ configure({ adapter: new Adapter() })
 
 describe('Trivia', () => {
   const wrapper = shallow(<Trivia />)
-  const instance = wrapper.instance()
 
   describe('our initial state', () => {
 
