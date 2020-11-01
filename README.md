@@ -36,4 +36,8 @@ Your goal is to create an application that displays trivia questions with multip
 ### Testing
 
 This project was tested using Jest and Enzyme
--
+- ```npm test```
+- either cd into the spec files you wish to test individually or
+- ```a``` to run all rests
+
+###
