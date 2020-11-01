@@ -1,5 +1,5 @@
 import React from 'react'
-import Questions from './data/Questions'
+import Questions from './data/Questions.json'
 import { groupAnswers, shuffleData } from './HelperFunctions'
 
 export default class Trivia extends React.Component {
