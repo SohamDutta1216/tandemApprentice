@@ -58,7 +58,7 @@ export default class Trivia extends React.Component {
             (
 
               <div className=" container center">
-                <h4 style={{ color: '#6c6f45', marginTop: '50px' }}>{this.state.score}/10</h4>
+                <h4 style={{ color: '#6c6f45', marginTop: '50px' }}>Score : {this.state.score}/10</h4>
                 <div style={{ backgroundColor: '#fcd9d2', marginTop: '50px' }} className="card">
 
                   <h5 style={{ color: '#6c6f45' }}>

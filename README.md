@@ -1,7 +1,4 @@
 # Tandem Apprenticeship 2020 Code Challenge
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Goal
 
 Your goal is to create an application that displays trivia questions with multiple-choice answers to select from.
@@ -66,6 +63,6 @@ Testing
 - Jest docs - https://jestjs.io/docs/en/getting-started
 - Enzyme docs - https://enzymejs.github.io/enzyme/
 - 'How to get started unit testing React components with Jest & Enzyme' by
-WellPaidGeek on youtube https://www.youtube.com/watch?v=XUlGzJLZe2Q&ab_channel=WellPaidGeek
+WellPaidGeek on YouTube https://www.youtube.com/watch?v=XUlGzJLZe2Q&ab_channel=WellPaidGeek
 - 'How to Directly Test React Component Methods with Enzyme' by Brian Ambielli https://bambielli.com/til/2018-03-04-directly-test-react-component-methods/
 
