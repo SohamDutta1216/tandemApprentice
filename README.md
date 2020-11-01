@@ -3,7 +3,7 @@
 
 Your goal is to create an application that displays trivia questions with multiple-choice answers to select from.
 
-![Alt text](https://i.postimg.cc/k5ZVK7sb/Screen-Shot-2020-11-01-at-8-11-26-AM.png "preview")
+![Alt text](/background.png "preview")
 
 ### Assumptioms
 
@@ -66,3 +66,7 @@ Testing
 WellPaidGeek on YouTube https://www.youtube.com/watch?v=XUlGzJLZe2Q&ab_channel=WellPaidGeek
 - 'How to Directly Test React Component Methods with Enzyme' by Brian Ambielli https://bambielli.com/til/2018-03-04-directly-test-react-component-methods/
 
+### Future Features
+
+- implement a RDBMS such as PostgresSQL to hold all our JSON data
+- implement google OAuth and use our RDBMS to
